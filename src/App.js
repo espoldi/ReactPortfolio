@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 // Components
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Project from './components/Project.js';
 
 // Materialize
 import M from 'materialize-css';
 
 class App extends Component {
-    state = {}
+    state = {
+        error: ""
+    }
 
     componentDidMount() {
         M.AutoInit();
@@ -18,8 +21,9 @@ class App extends Component {
     render() {
         return (
             <>
-            <Header />
-            <Footer />
+                <Header />
+                <Project />
+                <Footer />
             </>
         );
     }
