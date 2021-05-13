@@ -1,10 +1,8 @@
 import React from "react";
 
-function Project() {
+export default function Project() {
     return (
         <>
         </>
     );
 }
-
-export default Project;

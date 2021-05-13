@@ -9,7 +9,7 @@ import Project from './components/Project.js';
 // Material UI
 
 
-class App extends Component {
+export default class App extends Component {
     state = {
         error: ""
     }
@@ -28,5 +28,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;
