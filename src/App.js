@@ -6,8 +6,8 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Project from './components/Project.js';
 
-// Materialize
-import M from 'materialize-css';
+// Material UI
+
 
 class App extends Component {
     state = {
@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        M.AutoInit();
+        
     };
 
     render() {
