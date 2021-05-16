@@ -13,15 +13,27 @@ import {
     GitHub,
     LinkedIn
 } from "@material-ui/icons";
+import {
+    makeStyles
+} from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    media: {
+      height: '100%',
+      paddingTop: '100%',
+    },
+  }));
 
 export default function About() {
+    const classes = useStyles();
     return (
         <Card>
             <CardHeader
                 title="Emily Spoldi"
                 subheader="Full Stack Web Developer" />
             <CardMedia
-                image="/images/portrait.jpg"
+                className={classes.media}
+                image={'https://avatars.githubusercontent.com/u/72423431?v=4'}
                 title="Emily Spoldi" />
             <CardContent>
 
