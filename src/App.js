@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 
 // Components
-import Header from './components/Header.js';
+import NavBar from './components/NavBar.js';
 import Footer from './components/Footer.js';
-import Project from './components/Project.js';
 
 // Material UI
 import {
@@ -22,9 +21,8 @@ export default class App extends Component {
 
     render() {
         return (
-            <Container maxWidth="sm">
-                <Header />
-                <Project />
+            <Container>
+                <NavBar />
                 <Footer />
             </Container>
         );
