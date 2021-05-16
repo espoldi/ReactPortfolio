@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // Components
 import NavBar from './components/NavBar.js';
-import Footer from './components/Footer.js';
 
 // Material UI
 import {
@@ -23,7 +22,6 @@ export default class App extends Component {
         return (
             <Container>
                 <NavBar />
-                <Footer />
             </Container>
         );
     }
