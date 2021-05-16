@@ -30,15 +30,15 @@ export default function Body() {
         <>
             <div className={classes.drawerHeader} />
             <Grid container>
-                <Grid item xs="12" sm="4">
+                <Grid item xs="12" md="4" align="center">
                     <About />
                 </Grid>
 
-                <Grid item xs="12" sm="8">
+                <Grid item xs="12" md="8" align="center">
                     <Folio />
                 </Grid>
 
-                <Grid item xs="12">
+                <Grid item xs="12" align="center">
                     <Footer />
                 </Grid>
             </Grid>
