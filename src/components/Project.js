@@ -11,10 +11,10 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 600,
     },
     media: {
-        height: 140,
+        height: 300,
     },
 });
 
@@ -25,7 +25,8 @@ export default function Project(props) {
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={`../images/screenshots/${props.data.image}`}
+                    component="image"
+                    image={`${props.data.image}`}
                     title={`${props.data.title}`}
                 />
                 <CardContent>
@@ -38,12 +39,12 @@ export default function Project(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button color="primary" href={`${props.data.github}`}>
                     Github Repository
-        </Button>
-                <Button size="small" color="primary">
+                </Button>
+                <Button color="primary" href={`${props.data.live}`}>
                     Live Site
-        </Button>
+                </Button>
             </CardActions>
         </Card>
     );
