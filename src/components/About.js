@@ -19,6 +19,7 @@ import {
     CardHeader,
     CardMedia,
     Chip,
+    Grid,
     IconButton,
     Typography
 } from "@material-ui/core";
@@ -41,10 +42,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function About() {
     const classes = useStyles();
+
+    const [chipData] = useState([
+        { key: 0, icon: `${buttons}`, label: 'DIY Crafts' },
+        { key: 1, icon: `${controller}`, label: 'Video Games' },
+        { key: 2, icon: `${dice}`, label: 'Dungeons and Dragons' },
+        { key: 3, icon: `${groceries}`, label: 'Cooking' },
+        { key: 4, icon: `${sale}`, label: 'Shopping' }
+    ]);
+
     const [expanded, setExpanded] = useState(false);
     const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false); };
-    
+        setExpanded(isExpanded ? panel : false);
+    };
+
     return (
         <Card>
             <CardHeader
@@ -73,11 +84,11 @@ export default function About() {
                         <Typography className={classes.heading}>Introduction</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                    <Typography>
-                    My name is Emily Spoldi. I am 28 years old and programming has had a heavy influence on my life since I was little. My parents are both software engineers so technical jargon was common at the dinner table. I was the only one in my immediate family who decided to do something other than programming when deciding on college majors... UNTIL NOW!<br />
-                    <br />
-                    I have spent a few years working with different schools and programs using what I have taught myself or remember from my classes at SCSU and high school robotics team. Now, I am well on my way to making the world a better formatted place. Having grown up in an era where technology was evolving quickly has given me the ability to use some systems without much experience.
-                </Typography>
+                        <Typography>
+                            My name is Emily Spoldi. I am 28 years old and programming has had a heavy influence on my life since I was little. My parents are both software engineers so technical jargon was common at the dinner table. I was the only one in my immediate family who decided to do something other than programming when deciding on college majors... UNTIL NOW!<br />
+                            <br />
+                            I have spent a few years working with different schools and programs using what I have taught myself or remember from my classes at SCSU and high school robotics team. Now, I am well on my way to making the world a better formatted place. Having grown up in an era where technology was evolving quickly has given me the ability to use some systems without much experience.
+                        </Typography>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={expanded === 'interests'} onChange={handleChange('interests')}>
@@ -88,48 +99,18 @@ export default function About() {
                         <Typography className={classes.heading}>Interests</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Chip avatar={<Avatar src={controller} />} label="Video Games"/>
-                        <Chip avatar={<Avatar src={dice} />} label="Dungeons & Dragons"/>
-                        <Chip avatar={<Avatar src={groceries} />} label="Cooking"/>
-                        <Chip avatar={<Avatar src={buttons} />} label="DIY Crafts"/>
-                        <Chip avatar={<Avatar src={sale} />} label="Shopping"/>
+                        <Grid container>
+                            {chipData.map((data) => {
+                                return (
+                                    <Grid item key={data.key} >
+                                        <Chip avatar={<Avatar src={data.icon} />} label={data.label} />
+                                    </Grid>
+                                );
+                            })}
+                        </Grid>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                    <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel3bh-content"
-                        id="panel3bh-header">
-                        <Typography className={classes.heading}>Advanced settings</Typography>
-                        <Typography className={classes.secondaryHeading}>
-                            Filtering has been entirely disabled for whole web server
-          </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-                            vitae egestas augue. Duis vel est augue.
-          </Typography>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                    <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel4bh-content"
-                        id="panel4bh-header"
-                    >
-                        <Typography className={classes.heading}>Personal data</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-                            vitae egestas augue. Duis vel est augue.
-          </Typography>
-                    </AccordionDetails>
-                </Accordion>
-                
             </CardContent>
-
         </Card>
     );
 }
