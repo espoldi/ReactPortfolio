@@ -43,13 +43,13 @@ const useStyles = makeStyles((theme) => ({
 export default function About() {
     const classes = useStyles();
 
-    const [chipData] = useState([
+    const chipData = [
         { key: 0, icon: `${buttons}`, label: 'DIY Crafts' },
         { key: 1, icon: `${controller}`, label: 'Video Games' },
         { key: 2, icon: `${dice}`, label: 'Dungeons and Dragons' },
         { key: 3, icon: `${groceries}`, label: 'Cooking' },
         { key: 4, icon: `${sale}`, label: 'Shopping' }
-    ]);
+    ];
 
     const [expanded, setExpanded] = useState(false);
     const handleChange = (panel) => (event, isExpanded) => {
