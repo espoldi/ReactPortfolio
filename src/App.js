@@ -7,7 +7,9 @@ import Footer from './components/Footer.js';
 import Project from './components/Project.js';
 
 // Material UI
-
+import {
+    Container
+} from "@material-ui/core";
 
 export default class App extends Component {
     state = {
@@ -20,11 +22,11 @@ export default class App extends Component {
 
     render() {
         return (
-            <>
+            <Container maxWidth="sm">
                 <Header />
                 <Project />
                 <Footer />
-            </>
+            </Container>
         );
     }
 }
