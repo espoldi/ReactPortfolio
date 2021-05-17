@@ -16,6 +16,8 @@ import {
     Typography
 } from "@material-ui/core";
 import {
+    Brightness3,
+    Brightness7,
     ChevronLeft,
     ChevronRight,
     MenuOpen
@@ -85,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function NavBar() {
+export default function NavBar(props) {
+    const icon = !props.theme ? <Brightness7 /> : <Brightness3 />;
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -109,7 +112,17 @@ export default function NavBar() {
                 <Toolbar>
                     <Typography variant="h6" noWrap className={classes.title}>
                         My Portfolio
-          </Typography>
+                    </Typography>
+                    
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="mode"
+                onClick={() => props.changeTheme(!props.theme)}
+              >
+                {icon}
+              </IconButton>
+            
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
