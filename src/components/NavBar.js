@@ -18,7 +18,8 @@ import {
 import {
     Brightness4,
     Brightness7,
-    ExpandMore
+    ExpandMore,
+    MenuOpen
 } from "@material-ui/icons";
 import {
     makeStyles
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar(props) {
     const icon = !props.theme ? <Brightness7 /> : <Brightness4 />;
+    const projects = props.data;
     const classes = useStyles();
 
     const [open, setOpen] = React.useState(false);
@@ -60,7 +62,6 @@ export default function NavBar(props) {
         }
     }
 
-    // return focus to the button when we transitioned from !open -> open
     const prevOpen = React.useRef(open);
     React.useEffect(() => {
         if (prevOpen.current === true && open === false) {
@@ -100,9 +101,13 @@ export default function NavBar(props) {
                                 <Paper>
                                     <ClickAwayListener onClickAway={handleClose}>
                                         <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                            {projects.map((data) => {
+                                                return (
+                                                    <MenuItem onClick={handleClose}>
+                                                        <Button href={`#${data.key}`}><MenuOpen /></Button>{data.title}
+                                                    </MenuItem>
+                                                );
+                                            })}
                                         </MenuList>
                                     </ClickAwayListener>
                                 </Paper>

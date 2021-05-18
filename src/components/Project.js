@@ -29,7 +29,7 @@ export default function Project(props) {
     const classes = useStyles();
     return (
         <Grid item xs="12" md="6">
-            <Card className={classes.root}>
+            <Card className={classes.root} id={props.data.key}>
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
