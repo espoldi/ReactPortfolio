@@ -44,6 +44,9 @@ export default function Project(props) {
                         <Typography variant="body2" color="textSecondary" component="p">
                             {props.data.description}
                         </Typography>
+                        <Typography variant="body1" color="textPrimary" component="p">
+                            Technologies Used: {props.data.tech}
+                        </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
