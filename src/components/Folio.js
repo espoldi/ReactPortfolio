@@ -1,6 +1,12 @@
 import React from "react";
 
+// Components
 import Project from "./Project.js";
+
+// Material UI
+import {
+    Grid
+} from '@material-ui/core';
 
 export default function Folio() {
     const projectData = [
@@ -42,12 +48,12 @@ export default function Folio() {
             live: 'https://espoldi.github.io/pop-quiz' },
     ];
     return (
-        <>
+        <Grid container align="center">
             {projectData.map((data) => {
                 return (
                     <Project data={data} />
                 );
             })}
-        </>
+        </Grid>
     );
 }
