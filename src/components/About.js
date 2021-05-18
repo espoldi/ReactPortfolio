@@ -38,6 +38,14 @@ const useStyles = makeStyles((theme) => ({
         width: 300,
         borderRadius: 10,
     },
+    drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+    },
 }));
 
 export default function About() {
@@ -57,60 +65,63 @@ export default function About() {
     };
 
     return (
-        <Card>
-            <CardHeader
-                title="Emily Spoldi"
-                subheader="Full Stack Web Developer" />
-            <CardMedia
-                className={classes.media}
-                image={'https://avatars.githubusercontent.com/u/72423431?v=4'}
-                title="Emily Spoldi" />
-            <CardActions>
-                <IconButton aria-label="github link"
-                    href="https://github.com/espoldi">
-                    <GitHub />
-                </IconButton>
-                <IconButton aria-label="linkedin link"
-                    href="https://www.linkedin.com/in/emily-spoldi/">
-                    <LinkedIn />
-                </IconButton>
-            </CardActions>
-            <CardContent>
-                <Accordion expanded={expanded === 'introduction'} onChange={handleChange('introduction')}>
-                    <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="introduction-content"
-                        id="introduction-header">
-                        <Typography className={classes.heading}>Introduction</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            My name is Emily Spoldi. I am 28 years old and programming has had a heavy influence on my life since I was little. My parents are both software engineers so technical jargon was common at the dinner table. I was the only one in my immediate family who decided to do something other than programming when deciding on college majors... UNTIL NOW!<br />
-                            <br />
+        <>
+            <div className={classes.drawerHeader} id="about"></div>
+            <Card>
+                <CardHeader
+                    title="Emily Spoldi"
+                    subheader="Full Stack Web Developer" />
+                <CardMedia
+                    className={classes.media}
+                    image={'https://avatars.githubusercontent.com/u/72423431?v=4'}
+                    title="Emily Spoldi" />
+                <CardActions>
+                    <IconButton aria-label="github link"
+                        href="https://github.com/espoldi">
+                        <GitHub />
+                    </IconButton>
+                    <IconButton aria-label="linkedin link"
+                        href="https://www.linkedin.com/in/emily-spoldi/">
+                        <LinkedIn />
+                    </IconButton>
+                </CardActions>
+                <CardContent>
+                    <Accordion expanded={expanded === 'introduction'} onChange={handleChange('introduction')}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMore />}
+                            aria-controls="introduction-content"
+                            id="introduction-header">
+                            <Typography className={classes.heading}>Introduction</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                My name is Emily Spoldi. I am 28 years old and programming has had a heavy influence on my life since I was little. My parents are both software engineers so technical jargon was common at the dinner table. I was the only one in my immediate family who decided to do something other than programming when deciding on college majors... UNTIL NOW!<br />
+                                <br />
                             I have spent a few years working with different schools and programs using what I have taught myself or remember from my classes at SCSU and high school robotics team. Now, I am well on my way to making the world a better formatted place. Having grown up in an era where technology was evolving quickly has given me the ability to use some systems without much experience.
                         </Typography>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion expanded={expanded === 'interests'} onChange={handleChange('interests')}>
-                    <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="interests-content"
-                        id="interests-header">
-                        <Typography className={classes.heading}>Interests</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Grid container>
-                            {chipData.map((data) => {
-                                return (
-                                    <Grid item key={data.key} >
-                                        <Chip avatar={<Avatar src={data.icon} />} label={data.label} />
-                                    </Grid>
-                                );
-                            })}
-                        </Grid>
-                    </AccordionDetails>
-                </Accordion>
-            </CardContent>
-        </Card>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion expanded={expanded === 'interests'} onChange={handleChange('interests')}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMore />}
+                            aria-controls="interests-content"
+                            id="interests-header">
+                            <Typography className={classes.heading}>Interests</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Grid container>
+                                {chipData.map((data) => {
+                                    return (
+                                        <Grid item key={data.key} >
+                                            <Chip avatar={<Avatar src={data.icon} />} label={data.label} />
+                                        </Grid>
+                                    );
+                                })}
+                            </Grid>
+                        </AccordionDetails>
+                    </Accordion>
+                </CardContent>
+            </Card>
+        </>
     );
 }
