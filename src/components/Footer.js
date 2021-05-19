@@ -26,41 +26,51 @@ export default function Footer() {
                 <Grid item xs="12" sm="6">
                     <form action="mailto:emily.l.spoldi@gmail.com" method="post" enctype="text/plain">
                         <Typography variant="h4">Contact Me</Typography>
-                        <hr/>
+                        <hr />
                         <Grid container align="center">
                             <Grid item xs="12">
                                 <TextField
-                                className={classes.text}
-                                id="name-entry"
-                                label="Name"
-                                size="small"
-                                variant="outlined"
-                                fullWidth />
+                                    className={classes.text}
+                                    id="name-entry"
+                                    label="Name"
+                                    size="small"
+                                    variant="outlined"
+                                    fullWidth />
                             </Grid>
                             <Grid item xs="12">
                                 <TextField
-                                className={classes.text}
-                                id="email-entry"
-                                label="E-Mail"
-                                size="small"
-                                variant="outlined"
-                                fullWidth />
+                                    className={classes.text}
+                                    id="email-entry"
+                                    label="E-Mail"
+                                    size="small"
+                                    variant="outlined"
+                                    fullWidth />
                             </Grid>
                             <Grid item xs="12">
                                 <TextField
-                                className={classes.text}
-                                id="message-entry" 
-                                label="Message"
-                                variant="outlined"
-                                rows={6}
-                                multiline
-                                fullWidth />
+                                    className={classes.text}
+                                    id="message-entry"
+                                    label="Message"
+                                    variant="outlined"
+                                    rows={6}
+                                    multiline
+                                    fullWidth />
                             </Grid>
                             <Grid item xs="12">
-                            <Button variant="contained" color="primary" type="submit">Submit</Button>
+                                <Button variant="contained" color="primary" type="submit">Submit</Button>
                             </Grid>
                         </Grid>
                     </form>
+                </Grid>
+                <Grid item xs="12" sm="6">
+                    <Grid container align="center">
+                        <Grid item xs="12" className={classes.text}>
+                        <br/><br/><br/><br/><br/>
+                        <hr/>
+                        <Typography variant="h3">More Projects Coming Soon!</Typography>
+                        <hr/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </Paper>
