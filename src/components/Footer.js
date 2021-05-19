@@ -22,7 +22,7 @@ export default function Footer() {
     const classes = useStyles();
     return (
         <Paper>
-            <Grid container>
+            <Grid container id="contact">
                 <Grid item xs="12" sm="6">
                     <form action="mailto:emily.l.spoldi@gmail.com" method="post" enctype="text/plain">
                         <Typography variant="h4">Contact Me</Typography>
