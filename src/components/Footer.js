@@ -56,8 +56,11 @@ export default function Footer() {
                                     multiline
                                     fullWidth />
                             </Grid>
-                            <Grid item xs="12">
+                            <Grid item xs="4" align="right">
                                 <Button variant="contained" color="primary" type="submit">Submit</Button>
+                            </Grid>
+                            <Grid item xs="8">
+                                <Typography variant="paragraph">or email me at emily.l.spoldi@gmail.com</Typography>
                             </Grid>
                         </Grid>
                     </form>
